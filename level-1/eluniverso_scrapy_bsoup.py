@@ -44,21 +44,6 @@ class ElUniversoSpider(Spider):
                 id += 1
                 yield item.load_item()
 
-    """Using Scrapy"""
-    # def parse(self, response):
-    #     sel = Selector(response)
-    #     noticias = sel.xpath('//div[contains(@class, "content-feed")]/ul/li')
-    #     # PARA INVESTIGAR: Para que sirve enumerate?
-    #     for i, elem in enumerate(noticias):
-    #         item = ItemLoader(Noticia(), elem)  # Cargo mi item
-
-    #         # Llenando mi item a traves de expresiones XPATH
-    #         item.add_xpath('titular', './/h2/a/text()')
-    #         item.add_xpath('descripcion', './/p/text()')
-    #         item.add_value('id', i)
-    #         yield item.load_item()  # Retorno mi item lleno
-
-
 process = CrawlerProcess({
     'FEED_FORMAT': 'csv',
     'FEED_URI': 'resultados.csv'
